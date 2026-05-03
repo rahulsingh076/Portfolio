@@ -1,9 +1,17 @@
+import { Home } from "lucide-react";
 import "./App.css";
+import { Home_ } from "./assets/Home";
+import { BrowserRouter,Routes,Route} from "react-router-dom";
 
 function App() {
   return (
     <>
-      <h1 className="bg-amber-500 ">Hii This is rahul</h1>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home_ />}></Route>
+          <Route path="/about" element={<> rahul </>}></Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
