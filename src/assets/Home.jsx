@@ -12,7 +12,7 @@ export const Home_ = () => {
         <ul className="flex gap-20">
           {["Home", "About", "Project", "Blog", "Contact"].map((item, idx) => {
             return (
-              <li key={"${idx}-hi"} className="text-2xl">
+              <li key={`${idx}-hi`} className="text-2xl">
                 <Link to={item}>{item}</Link>
               </li>
             );
