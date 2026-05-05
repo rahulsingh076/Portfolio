@@ -1,15 +1,23 @@
-import { Home } from "lucide-react";
-import "./App.css";
-import { Home_ } from "./assets/Home";
-import { BrowserRouter,Routes,Route} from "react-router-dom";
+import "./index.css";
+import { Home } from "./Component/pages/Home";
+import { About } from "./Component/pages/About";
+import { Project } from "./Component/pages/Project";
+import { Blog } from "./Component/pages/Blog";
+import { Contact } from "./Component/pages/Contact";
+import { Hire } from "./Component/pages/Hire";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home_ />}></Route>
-          <Route path="/about" element={<> rahul </>}></Route>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/about" element={<About/>}></Route>
+          <Route path="/Project" element={<Project/>}></Route>
+          <Route path="/Blog" element={<Blog/>}></Route>
+          <Route path="/Contact" element={< Contact/>}></Route>
+          <Route path="/hire" element={<Hire/>}></Route>
         </Routes>
       </BrowserRouter>
     </>
