@@ -6,11 +6,13 @@ import { Blog } from "./Component/pages/Blog";
 import { Contact } from "./Component/pages/Contact";
 import { Hire } from "./Component/pages/Hire";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Navbar } from "./Component/Utility/Navbar";
 
 function App() {
   return (
     <>
       <BrowserRouter>
+      <Navbar/>
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/about" element={<About/>}></Route>

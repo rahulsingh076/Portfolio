@@ -1,8 +1,13 @@
-/* Google Fonts */
-
-@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
 @import "tailwindcss";
+:root {
+    --color-cloudMilk: 248 245 242;
+    --color-mossVelvet: 56 81 68;
+    --font-heading: "Rubik", sans-serif;
+    --font-body: "Inter", sans-serif;
+}
+
 @layer base {
     *,
     *::before,
@@ -12,9 +17,9 @@
         padding: 0;
     }
     body {
-        font-family: "Inter", sans-serif;
-        background-color: #F8F5F2;
-        color: #385144;
+        font-family: var(--font-body);
+        background-color: rgb(var(--color-cloudMilk));
+        color: rgb(var(--color-mossVelvet));
     }
     img {
         display: block;
@@ -25,22 +30,8 @@
         color: inherit;
     }
     button {
-        font: var(--font-heading);
         cursor: pointer;
         border: none;
-        color: #F8F5F2;
-        background-color: #385144;
-        border-radius: 6px;
-        padding: 8px 25px;
+        font-family: var(--font-heading);
     }
-    button:hover {
-        opacity: 90%;
-    }
-}
-
-:root {
-    --color-cloudMilk: #F8F5F2;
-    --color-mossVelvet: #385144;
-    --font-heading: ["Rubik", "sans-serif"];
-    --font-body: ["Inter", "sans-serif"];
 }
