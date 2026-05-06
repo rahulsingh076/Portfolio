@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 export default function TypewriterEffect() {
   const words = [
     "Creative Developer",
-    "React.js Designer",
+    "React Designer",
     "Frontend Engineer",
     "UI/UX Lover",
   ];
@@ -41,15 +41,17 @@ export default function TypewriterEffect() {
   }, [charIndex, isDeleting, wordIndex]);
 
   return (
-    <h1 className="text-2xl font-semibold text-[rgb(var(--color-mossVelvet))] md:text-6xl">
-      I am a{" "}
-      <span className="text-[rgb(var(--color-mossVelvet))] ">
+    <div className=" flex flex-col">
+     <span className=" text-6xl font-semibold text-[rgb(var(--color-mossVelvet))] md:text-6xl">
+         I am a{" "}
+        </span>
+      <span className=" text-5xl    font-semibold  md:text-6xl text-[rgb(var(--color-mossVelvet))] ">
         {/* --color-cloudMilk */}
         {text}
         <span className="animate-pulse text-[rgb(var(--color-mossVelvet))]/50 rounded-2xl">
           |
         </span>
       </span>
-    </h1>
+    </div>
   );
 }

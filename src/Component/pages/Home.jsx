@@ -38,7 +38,7 @@ export const Home = () => {
             </p>
           </div>
 
-          <div className="flex flex-col gap-4 sm:flex-row">
+          <div className="flex  gap-6">
             <Link to="/projects">
               <Button>View Projects</Button>
             </Link>
@@ -54,7 +54,7 @@ export const Home = () => {
         </div>
 
         <div className="mt-12 lg:mt-0 lg:w-[42%]">
-          <div className="rounded-4xl border border-[rgb(var(--color-mossVelvet))]/10 bg-white p-8 shadow-[0_35px_60px_-30px_rgba(0,0,0,0.2)]">
+          <div className="rounded-lg border border-[rgb(var(--color-mossVelvet))]/10 bg-white p-8 shadow">
             <p className="mb-6 text-sm uppercase tracking-[0.35em] text-[rgb(var(--color-mossVelvet))]/80">
               Featured Skills
             </p>
