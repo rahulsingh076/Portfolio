@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
 @import "tailwindcss";
+
 :root {
     --color-cloudMilk: 248 245 242;
     --color-mossVelvet: 56 81 68;
@@ -10,6 +11,7 @@
 }
 
 @layer base {
+
     *,
     *::before,
     *::after {
@@ -17,22 +19,114 @@
         margin: 0;
         padding: 0;
     }
+
     body {
         font-family: var(--font-body);
         background-color: rgb(var(--color-cloudMilk));
         color: rgb(var(--color-mossVelvet));
     }
+
     img {
         display: block;
         max-width: 100%;
     }
+
     a {
         text-decoration: none;
         color: inherit;
     }
+
     button {
         cursor: pointer;
         border: none;
         font-family: var(--font-heading);
     }
 }
+
+/* for card only  */
+/* ----------------------------------------------------- */
+@keyframes cardBorderSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.premium-skill-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  padding: 2px;
+  border-radius: 0.75rem;
+
+  background: transparent;
+
+  transition:
+    transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.35s ease;
+}
+
+
+.premium-skill-card::before {
+  content: "";
+  position: absolute;
+  inset: -140%;
+
+  border-radius: inherit;
+
+  background:
+    conic-gradient(
+      from 0deg,
+      transparent 0deg,
+      transparent 260deg,
+      rgba(56, 81, 68, 0.05) 285deg,
+      rgba(56, 81, 68, 0.25) 315deg,
+      rgba(56, 81, 68, 0.8) 342deg,
+      rgb(56, 81, 68) 350deg,
+      transparent 360deg
+    );
+
+  animation: cardBorderSpin 5.8s linear infinite;
+
+  z-index: 0;
+}
+
+
+.premium-skill-card::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+
+  border-radius: calc(0.75rem - 2px);
+  background: var(--card-grad);
+
+  z-index: 1;
+}
+/* ------------------------------------------------- */
+/* end card  */
+
+/* ----------------------------------------------- */
+/* for custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(var(--color-cloudMilk));
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--color-mossVelvet));
+  border-radius: 999px;
+  border: 2px solid var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--color-mossVelvet));
+}
+
+/* -------------------------------------------------- */
+/* End scroll bar */
+
+

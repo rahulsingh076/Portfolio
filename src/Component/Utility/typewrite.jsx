@@ -1,57 +1,94 @@
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useMemo, useRef, useState } from "react";
+import { gsap } from "gsap/gsap-core";
 
 export default function TypewriterEffect() {
-  const words = [
-    "Creative Developer",
-    "React Designer",
-    "Frontend Engineer",
-    "UI/UX Lover",
-  ];
+    const words = useMemo(
+        () => [
+            "Web Developer",
+            "React Builder",
+            "UI Designer",
+            "UX Thinker",
+        ],
+        []
+    );
 
-  const [text, setText] = useState("");
-  const [wordIndex, setWordIndex] = useState(0);
-  const [charIndex, setCharIndex] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
+    const [text, setText] = useState("");
+    const [wordIndex, setWordIndex] = useState(0);
+    const [charIndex, setCharIndex] = useState(0);
+    const [isDeleting, setIsDeleting] = useState(false);
 
-  useEffect(() => {
-    const currentWord = words[wordIndex];
+    useEffect(() => {
+        const currentWord = words[wordIndex];
 
-    const typingSpeed = isDeleting ? 60 : 120;
+        let typingSpeed = isDeleting ? 45 : 95;
 
-    const timer = setTimeout(() => {
-      if (!isDeleting) {
-        setText(currentWord.substring(0, charIndex + 1));
-        setCharIndex((prev) => prev + 1);
-
-        if (charIndex + 1 === currentWord.length) {
-          setTimeout(() => setIsDeleting(true), 1000);
+        if (!isDeleting && charIndex === currentWord.length) {
+            typingSpeed = 1200;
         }
-      } else {
-        setText(currentWord.substring(0, charIndex - 1));
-        setCharIndex((prev) => prev - 1);
 
-        if (charIndex === 0) {
-          setIsDeleting(false);
-          setWordIndex((prev) => (prev + 1) % words.length);
-        }
-      }
-    }, typingSpeed);
+        const timer = setTimeout(() => {
+            if (!isDeleting) {
+                if (charIndex < currentWord.length) {
+                    setText(currentWord.substring(0, charIndex + 1));
+                    setCharIndex((prev) => prev + 1);
+                } else {
+                    setIsDeleting(true);
+                }
+            } else {
+                if (charIndex > 0) {
+                    setText(currentWord.substring(0, charIndex - 1));
+                    setCharIndex((prev) => prev - 1);
+                } else {
+                    setIsDeleting(false);
+                    setWordIndex((prev) => (prev + 1) % words.length);
+                }
+            }
+        }, typingSpeed);
 
-    return () => clearTimeout(timer);
-  }, [charIndex, isDeleting, wordIndex]);
+        return () => clearTimeout(timer);
+    }, [charIndex, isDeleting, wordIndex, words]);
 
-  return (
-    <div className=" flex flex-col">
-     <span className=" text-6xl font-semibold text-[rgb(var(--color-mossVelvet))] md:text-6xl">
-         I am a{" "}
-        </span>
-      <span className=" text-5xl    font-semibold  md:text-6xl text-[rgb(var(--color-mossVelvet))] ">
-        {/* --color-cloudMilk */}
-        {text}
-        <span className="animate-pulse text-[rgb(var(--color-mossVelvet))]/50 rounded-2xl">
-          |
-        </span>
-      </span>
-    </div>
-  );
+    const timerRef = useRef(null);
+
+    useEffect(() => {
+gsap.fromTo(
+  timerRef.current,
+  { opacity: 0, filter: "blur(14px)" },
+  { opacity: 1, filter: "blur(0px)", duration: 0.5, ease: "power3.out", repeat: -1, yoyo: true }
+);
+    });
+
+    return (
+        <div className="relative flex flex-col">
+            {/* Background Glow */}
+            <div className="pointer-events-none absolute -left-6 top-8 h-28 w-28 rounded-full bg-[rgb(var(--color-mossVelvet))]/10 blur-3xl" />
+
+            {/* Small Label */}
+
+
+            {/* Main Heading */}
+            <h1 className="relative  font-black leading-[0.95] tracking-tight text-[rgb(var(--color-mossVelvet))]">
+                <span className="block text-5xl font-semibold leading-tight text-[rgb(var(--color-mossVelvet))]/80">
+                    I am a
+                </span>
+
+                <span
+                    aria-live="polite"
+                    className="mt-2 text-5xl inline-block min-h-[1.1em] bg-clip-text text-[rgb(var(--color-mossVelvet))] "
+                >
+                    {text}
+                </span>
+
+                {/* Cursor */}
+                <span className="ml-2 inline-block h-[2em] w-[5px]  animate-pulse rounded-full bg-[rgb(var(--color-mossVelvet))]/60" />
+            </h1>
+
+            {/* Bottom Accent Line */}
+            <div className="mt-5 flex items-center gap-3">
+                <span className="h-[2px] w-16 rounded-full bg-[rgb(var(--color-mossVelvet))]" />
+                <span className="h-[2px] w-8 rounded-full bg-[rgb(var(--color-mossVelvet))]/40" />
+                <span className="h-[2px] w-4 rounded-full bg-[rgb(var(--color-mossVelvet))]/20" />
+            </div>
+        </div>
+    );
 }
