@@ -18,7 +18,7 @@ export const Navbar = () => {
   return (
     <header
       className="
-        fixed top-0 left-0 w-full
+        sticky top-0 left-0 w-full
         h-24
         bg-[rgb(var(--color-cloudMilk))]
         shadow-sm
