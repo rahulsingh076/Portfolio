@@ -12,16 +12,16 @@ import { Button } from "../Common/Button";
 export const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
 
-  // Current Route
   const location = useLocation();
 
   return (
     <header
       className="
         sticky top-0 left-0 w-full
-        h-24
-        bg-[rgb(var(--color-cloudMilk))]
-        shadow-sm
+        h-20
+        border-b border-[rgb(var(--color-mossVelvet))]/10
+        bg-[rgb(var(--color-cloudMilk))]/88
+        shadow-sm backdrop-blur-xl
         z-50
       "
     >
@@ -33,35 +33,34 @@ export const Navbar = () => {
           px-6 md:px-12
         "
       >
-        {/* Logo */}
         <div className="flex-1">
           <Link to="/">
             <img
               src={Logo}
               alt="Logo"
               className="
-                w-36 md:w-42
+                w-32 md:w-36
                 h-auto
                 object-contain
+                transition-transform duration-300 hover:-rotate-1 hover:scale-105
               "
             />
           </Link>
         </div>
 
-        {/* Desktop Navigation */}
         <nav className="hidden md:flex flex-1 justify-center">
-          <ul className="flex items-center gap-10 font-heading">
-            {MenuItems.map((item, idx) => {
+          <ul className="flex items-center gap-7 font-heading">
+            {MenuItems.map((item) => {
               const isActive = location.pathname === item.path;
 
               return (
-                <li key={idx} className="relative group">
+                <li key={item.id} className="relative group">
                   <Link
                     to={item.path}
                     className={`
                       relative
-                      text-lg
-                      tracking-wide
+                      text-base
+                      tracking-[0]
                       transition-colors duration-300
                       
                       ${
@@ -80,12 +79,11 @@ export const Navbar = () => {
                   >
                     {item.name}
 
-                    {/* Animated Underline */}
                     <span
                       className={`
                         absolute left-0 -bottom-2
-                        h-1
-                        rounded-2xl
+                        h-0.5
+                        rounded-lg
                         bg-[rgb(var(--color-mossVelvet))]
                         transition-all duration-500
                         
@@ -104,10 +102,9 @@ export const Navbar = () => {
           className="
             flex-1
             flex justify-end items-center
-            gap-4
+          gap-4
           "
         >
-          {/* Hire Me Button */}
           <Link to="/hire">
             <Button
               className="
@@ -119,12 +116,13 @@ export const Navbar = () => {
             </Button>
           </Link>
 
-          {/* Mobile Menu Button */}
           <button
+            aria-label="Toggle menu"
             className="
               md:hidden
+              grid h-11 w-11 place-items-center rounded-lg border border-[rgb(var(--color-mossVelvet))]/15
               text-[rgb(var(--color-mossVelvet))]
-              transition duration-300
+              transition duration-300 hover:bg-[rgb(var(--color-mossVelvet))] hover:text-white
             "
             onClick={() => setOpenMenu(!openMenu)}
           >
@@ -133,7 +131,6 @@ export const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {openMenu && <MobileMenu setOpenMenu={setOpenMenu} />}
     </header>
   );

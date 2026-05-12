@@ -16,13 +16,13 @@ export const MobileMenu = ({ setOpenMenu }) => {
         bg-black/30
         backdrop-blur-sm
         md:hidden
+        z-50
       "
       onClick={() => setOpenMenu(false)}
     >
-      {/* Sidebar */}
       <div
         className="
-          w-62 h-screen ml-auto
+          mobile-menu-panel w-72 h-screen ml-auto
           bg-[rgb(var(--color-mossVelvet))]/90
           text-[rgb(var(--color-cloudMilk))]
           p-6
@@ -30,7 +30,6 @@ export const MobileMenu = ({ setOpenMenu }) => {
         "
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Top */}
         <div
           className="
             flex items-center justify-between
@@ -41,16 +40,16 @@ export const MobileMenu = ({ setOpenMenu }) => {
             className="
               text-xl
               font-semibold
-              tracking-wide
+              tracking-[0]
             "
           >
             Menu
           </h2>
 
-          {/* Close Button */}
           <button
             onClick={() => setOpenMenu(false)}
             className="
+              grid h-10 w-10 place-items-center rounded-lg
               hover:rotate-90
               transition duration-300
             "
@@ -59,22 +58,21 @@ export const MobileMenu = ({ setOpenMenu }) => {
           </button>
         </div>
 
-        {/* Menu Items */}
-        <ul className="flex flex-col gap-2 items-center">
-          {Menu.map((item, idx) => {
+        <ul className="flex flex-col gap-2">
+          {Menu.map((item) => {
             const isActive = location.pathname === item.path;
 
             return (
-              <li key={idx}>
+              <li key={item.id}>
                 <Link
                   to={item.path}
                   onClick={() => setOpenMenu(false)}
                   className={`
 
                     block
-                    rounded-xl
+                    rounded-lg
                     px-8 py-2
-                    text-md
+                    text-base
                     transition-all duration-300
                     
                     ${

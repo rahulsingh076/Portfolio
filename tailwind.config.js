@@ -3,7 +3,10 @@ export default {
     content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
     theme: {
         extend: {
-
+            fontFamily: {
+                heading: ["Rubik", "sans-serif"],
+                body: ["Inter", "sans-serif"],
+            },
         },
     },
     plugins: [],

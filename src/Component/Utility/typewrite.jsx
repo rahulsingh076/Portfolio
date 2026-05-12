@@ -1,5 +1,4 @@
-import React, { use, useEffect, useMemo, useRef, useState } from "react";
-import { gsap } from "gsap/gsap-core";
+import React, { useEffect, useMemo, useState } from "react";
 
 export default function TypewriterEffect() {
     const words = useMemo(
@@ -48,42 +47,23 @@ export default function TypewriterEffect() {
         return () => clearTimeout(timer);
     }, [charIndex, isDeleting, wordIndex, words]);
 
-    const timerRef = useRef(null);
-
-    useEffect(() => {
-gsap.fromTo(
-  timerRef.current,
-  { opacity: 0, filter: "blur(14px)" },
-  { opacity: 1, filter: "blur(0px)", duration: 0.5, ease: "power3.out", repeat: -1, yoyo: true }
-);
-    });
-
     return (
         <div className="relative flex flex-col">
-            {/* Background Glow */}
-            <div className="pointer-events-none absolute -left-6 top-8 h-28 w-28 rounded-full bg-[rgb(var(--color-mossVelvet))]/10 blur-3xl" />
-
-            {/* Small Label */}
-
-
-            {/* Main Heading */}
-            <h1 className="relative  font-black leading-[0.95] tracking-tight text-[rgb(var(--color-mossVelvet))]">
-                <span className="block text-5xl font-semibold leading-tight text-[rgb(var(--color-mossVelvet))]/80">
+            <h1 className="relative font-heading font-black leading-[1] tracking-[0] text-[rgb(var(--color-mossVelvet))]">
+                <span className="block text-4xl font-semibold leading-tight text-[rgb(var(--color-mossVelvet))]/80 sm:text-5xl">
                     I am a
                 </span>
 
                 <span
                     aria-live="polite"
-                    className="mt-2 text-5xl inline-block min-h-[1.1em] bg-clip-text text-[rgb(var(--color-mossVelvet))] "
+                    className="mt-2 inline-block min-h-[1.1em] bg-clip-text text-4xl text-[rgb(var(--color-mossVelvet))] sm:text-6xl"
                 >
                     {text}
                 </span>
 
-                {/* Cursor */}
                 <span className="ml-2 inline-block h-[2em] w-[5px]  animate-pulse rounded-full bg-[rgb(var(--color-mossVelvet))]/60" />
             </h1>
 
-            {/* Bottom Accent Line */}
             <div className="mt-5 flex items-center gap-3">
                 <span className="h-[2px] w-16 rounded-full bg-[rgb(var(--color-mossVelvet))]" />
                 <span className="h-[2px] w-8 rounded-full bg-[rgb(var(--color-mossVelvet))]/40" />

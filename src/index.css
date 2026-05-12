@@ -2,10 +2,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
 @import "tailwindcss";
 
+@theme {
+    --font-heading: "Rubik", sans-serif;
+    --font-body: "Inter", sans-serif;
+}
+
 :root {
     --color-cloudMilk: 248 245 242;
     --color-mossVelvet: 56 81 68;
     --color-MatchaMist: 194, 216, 196;
+    --color-charcoal: 56 81 68;
     --font-heading: "Rubik", sans-serif;
     --font-body: "Inter", sans-serif;
 }
@@ -24,6 +30,11 @@
         font-family: var(--font-body);
         background-color: rgb(var(--color-cloudMilk));
         color: rgb(var(--color-mossVelvet));
+        overflow-x: hidden;
+    }
+
+    html {
+        scroll-behavior: smooth;
     }
 
     img {
@@ -41,6 +52,154 @@
         border: none;
         font-family: var(--font-heading);
     }
+}
+
+@layer components {
+  .page-shell {
+    position: relative;
+    background-image:
+      linear-gradient(rgba(56, 81, 68, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(56, 81, 68, 0.035) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .page-shell::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background:
+      linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.42) 42%, transparent 72%),
+      repeating-linear-gradient(
+        135deg,
+        rgba(56, 81, 68, 0.045) 0,
+        rgba(56, 81, 68, 0.045) 1px,
+        transparent 1px,
+        transparent 18px
+      );
+    opacity: 0.55;
+  }
+
+  .page-shell > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .reveal-in {
+    opacity: 0;
+    transform: translateY(26px);
+    filter: blur(10px);
+    transition:
+      opacity 0.7s ease,
+      transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
+      filter 0.7s ease;
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  .reveal-in.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+
+  .hover-card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    transition:
+      transform 0.35s ease,
+      box-shadow 0.35s ease,
+      border-color 0.35s ease;
+  }
+
+  .hover-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+      120deg,
+      transparent 0%,
+      rgba(56, 81, 68, 0.09) 48%,
+      transparent 100%
+    );
+    opacity: 0;
+    transform: translateX(-120%);
+    transition:
+      opacity 0.35s ease,
+      transform 0.7s ease;
+  }
+
+  .hover-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(56, 81, 68, 0.28);
+    box-shadow: 0 24px 60px rgba(56, 81, 68, 0.13);
+  }
+
+  .hover-card:hover::before {
+    opacity: 1;
+    transform: translateX(120%);
+  }
+
+  .magnetic-button {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .magnetic-button::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      120deg,
+      transparent,
+      rgba(255, 255, 255, 0.24),
+      transparent
+    );
+    transform: translateX(-120%);
+    transition: transform 0.55s ease;
+  }
+
+  .magnetic-button:hover::before {
+    transform: translateX(120%);
+  }
+
+  .magnetic-button > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-card {
+    animation: floatSoft 6s ease-in-out infinite;
+  }
+
+  .mobile-menu-panel {
+    animation: menuSlide 0.32s ease both;
+  }
+}
+
+@keyframes floatSoft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes menuSlide {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 /* for card only  */
@@ -119,7 +278,7 @@
 ::-webkit-scrollbar-thumb {
   background: rgb(var(--color-mossVelvet));
   border-radius: 999px;
-  border: 2px solid var(--scrollbar-track);
+  border: 2px solid rgb(var(--color-cloudMilk));
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -129,4 +288,19 @@
 /* -------------------------------------------------- */
 /* End scroll bar */
 
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 
+  .reveal-in {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}

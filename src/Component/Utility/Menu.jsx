@@ -19,6 +19,12 @@ export const Menu = [
 
   {
     id: 4,
+    name: "Blog",
+    path: "/blog",
+  },
+
+  {
+    id: 5,
     name: "Contact",
     path: "/contact",
   },
