@@ -1,6 +1,6 @@
 import React from "react";
 
-export const SkillCard = ({ name, level, detail, icon: Icon }) => {
+export const SkillCard = ({ name, level, label, detail, icon: Icon }) => {
   return (
     <article className="hover-card group rounded-lg border border-[rgb(var(--color-mossVelvet))]/15 bg-white/70 p-5 shadow-sm backdrop-blur">
       <div className="flex items-center justify-between gap-4">
@@ -13,7 +13,7 @@ export const SkillCard = ({ name, level, detail, icon: Icon }) => {
           <h3 className="font-heading text-lg font-semibold">{name}</h3>
         </div>
         <span className="text-sm font-semibold text-[rgb(var(--color-mossVelvet))]/70">
-          {level}
+          {label || level}
         </span>
       </div>
       <p className="mt-4 text-sm leading-6 text-[rgb(var(--color-mossVelvet))]/70">

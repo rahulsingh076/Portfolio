@@ -4,8 +4,8 @@ import { ActionLink } from "../Common/ActionLink";
 import { Reveal } from "../Common/Reveal";
 
 export const CtaSection = ({
-  title = "Ready to build something sharper?",
-  description = "Share the pages you need, the feeling you want, and the deadline you have in mind.",
+  title = "Ready to build a clean frontend experience?",
+  description = "Share the page idea, preferred technology, and the content you want visitors to see first.",
 }) => {
   return (
     <section className="mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:px-12">

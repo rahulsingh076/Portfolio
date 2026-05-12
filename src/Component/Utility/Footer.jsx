@@ -3,6 +3,7 @@ import { Code2, Mail, Send, Sparkles } from "lucide-react";
 import Logo from "../../assets/Photos/Logo.png";
 import { Menu } from "./Menu";
 import { Link } from "react-router-dom";
+import { profile } from "../Data/portfolioData";
 
 const socials = [
   { label: "Code", icon: Code2 },
@@ -16,14 +17,15 @@ export const Footer = () => {
     <footer className="border-t border-[rgb(var(--color-mossVelvet))]/12 bg-[rgb(var(--color-cloudMilk))] text-[rgb(var(--color-mossVelvet))]">
       <div className="mx-auto grid max-w-7xl gap-8 px-6 py-10 sm:px-8 md:grid-cols-[1.2fr_1fr_1fr] lg:px-12">
         <div>
-          <img src={Logo} alt="Logo" className="h-auto w-32" />
-          <ul></ul>
-          <li>Mahato Nitesh</li>
-          <li>rahulrajsingh276@gmail.com</li>
-          <li>+821096703422</li>
+          <img src={Logo} alt={`${profile.name} logo`} className="h-auto w-32" />
+          <ul className="mt-4 grid gap-2 text-sm font-semibold text-[rgb(var(--color-mossVelvet))]/80">
+            <li>{profile.name}</li>
+            <li>{profile.email}</li>
+            <li>{profile.phone}</li>
+          </ul>
           <p className="mt-4 max-w-sm text-sm leading-7 text-[rgb(var(--color-mossVelvet))]/70">
-            Building digital products and portfolios that feel clean, useful,
-            and ready for real visitors.
+            {profile.tagline} Currently studying at {profile.education} and
+            learning the {profile.learning}.
           </p>
         </div>
 

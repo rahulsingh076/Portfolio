@@ -1,6 +1,7 @@
 import React from "react";
 import { PageShell } from "../Common/PageShell";
 import { HeroSection } from "../Sections/HeroSection";
+import { BioSection } from "../Sections/BioSection";
 import { ServicesSection } from "../Sections/ServicesSection";
 import { SkillsSection } from "../Sections/SkillsSection";
 import { ProjectsPreview } from "../Sections/ProjectsPreview";
@@ -11,10 +12,11 @@ export const Home = () => {
   return (
     <PageShell>
       <HeroSection />
+      <BioSection />
       <ServicesSection />
       <SkillsSection />
       <ProjectsPreview />
-      <TimelineSection title="From idea to finished page" />
+      <TimelineSection title="My learning and development path" />
       <CtaSection />
     </PageShell>
   );

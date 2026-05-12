@@ -13,8 +13,8 @@ export const Blog = () => {
         <Reveal>
           <SectionHeading
             eyebrow="Blog"
-            title="Notes on frontend design and polish."
-            description="A dedicated writing page gives the portfolio one more way to show process, taste, and practical frontend thinking."
+            title="Notes from my frontend learning path."
+            description="Short writing topics about frontend development, MERN stack learning, and studying while building practical web projects."
             align="center"
           />
         </Reveal>
@@ -29,8 +29,8 @@ export const Blog = () => {
       </section>
 
       <CtaSection
-        title="Want a portfolio with writing, projects, and services?"
-        description="Use the writing page to show your thinking, project taste, and the decisions behind the finished work."
+        title="Want to talk about frontend work?"
+        description="Reach out with your project idea, learning goal, or website plan and I will help shape the next step."
       />
     </PageShell>
   );

@@ -3,10 +3,10 @@ import React, { useEffect, useMemo, useState } from "react";
 export default function TypewriterEffect() {
     const words = useMemo(
         () => [
-            "Web Developer",
+            "Mahato Nitesh",
+            "Frontend Developer",
             "React Builder",
-            "UI Designer",
-            "UX Thinker",
+            "MERN Stack Learner",
         ],
         []
     );
@@ -51,7 +51,7 @@ export default function TypewriterEffect() {
         <div className="relative flex flex-col">
             <h1 className="relative font-heading font-black leading-[1] tracking-[0] text-[rgb(var(--color-mossVelvet))]">
                 <span className="block text-4xl font-semibold leading-tight text-[rgb(var(--color-mossVelvet))]/80 sm:text-5xl">
-                    I am a
+                    I am
                 </span>
 
                 <span

@@ -11,7 +11,7 @@ export const TimelineSection = ({ title = "A simple build process" }) => {
         <SectionHeading
           eyebrow="Process"
           title={title}
-          description="The workflow stays clear from first idea to finished page, with room for motion, responsive checks, and content updates."
+          description="A quick look at my current path as a student, frontend developer, and MERN stack learner."
           align="center"
         />
       </Reveal>

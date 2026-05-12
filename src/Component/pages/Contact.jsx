@@ -16,8 +16,8 @@ export const Contact = () => {
         <Reveal className="space-y-8">
           <SectionHeading
             eyebrow="Get In Touch"
-            title="Tell me what you want to build."
-            description="Send a clear project note, timeline, and page list. I will use it to understand the right structure, motion level, and next step."
+            title="Tell me about your frontend project."
+            description="Send the page idea, must-have sections, preferred stack, and timeline. I will use it to understand the layout, components, and next step."
           />
 
           <div className="grid gap-4">

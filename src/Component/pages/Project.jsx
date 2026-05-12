@@ -14,8 +14,8 @@ export const Project = () => {
         <Reveal>
           <SectionHeading
             eyebrow="Projects"
-            title="Work built around structure, motion, and clarity."
-            description="Each project focuses on a clear message, responsive flow, and a visual rhythm that helps the work feel easy to understand."
+            title="Frontend projects and practice work."
+            description="These project cards show the kind of interfaces I am building while sharpening React, Tailwind CSS, JavaScript, and data-driven UI skills."
             align="center"
           />
         </Reveal>
@@ -31,8 +31,8 @@ export const Project = () => {
 
       <TimelineSection title="How each project moves" />
       <CtaSection
-        title="Have a project that needs a stronger web presence?"
-        description="Bring the idea and the must-have sections. The component system can handle the rest."
+        title="Have a frontend idea to build?"
+        description="I can help organize the layout, choose the right components, and turn the idea into a responsive web page."
       />
     </PageShell>
   );

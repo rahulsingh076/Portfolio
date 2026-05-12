@@ -1,10 +1,11 @@
 import React from "react";
 import { Download, Send, Sparkles } from "lucide-react";
+import profileImage from "../../assets/Photos/Logo.png";
 import TypewriterEffect from "../Utility/typewrite";
 import { ActionLink } from "../Common/ActionLink";
 import { Reveal } from "../Common/Reveal";
 import { StatCard } from "../Common/StatCard";
-import { stats } from "../Data/portfolioData";
+import { profile, stats } from "../Data/portfolioData";
 
 export const HeroSection = () => {
   return (
@@ -12,15 +13,15 @@ export const HeroSection = () => {
       <Reveal className="space-y-8">
         <p className="inline-flex items-center gap-2 rounded-lg border border-[rgb(var(--color-mossVelvet))]/15 bg-white/70 px-4 py-2 text-sm font-semibold shadow-sm backdrop-blur">
           <span className="h-2 w-2 animate-pulse rounded-full bg-[rgb(var(--color-mossVelvet))]" />
-          Hi there, Welcome to my profile.
+          Hi, I am {profile.name}.
         </p>
 
         <TypewriterEffect />
 
         <p className="max-w-2xl text-base leading-8 text-[rgb(var(--color-mossVelvet))]/75 sm:text-lg">
-          I design responsive, accessible, and memorable web pages that help
-          creatives and businesses stand out online. Explore my work, learn
-          about my process, or get in touch to start your next project.
+          {profile.tagline} I specialize in frontend development, study at{" "}
+          {profile.education} in South Korea, and I am currently learning the{" "}
+          {profile.learning}.
         </p>
 
         <div className="flex flex-col gap-4 sm:flex-row">
@@ -50,8 +51,18 @@ export const HeroSection = () => {
                   <Sparkles size={24} aria-hidden="true" />
                 </span>
                 <h2 className="mt-6 font-heading text-4xl font-bold leading-tight">
-                  i have an experience.
+                  {profile.name}
                 </h2>
+                <p className="mt-3 text-sm font-semibold uppercase text-[rgb(var(--color-mossVelvet))]/65">
+                  {profile.role} | {profile.education}
+                </p>
+              </div>
+              <div className="my-6 overflow-hidden rounded-lg border border-[rgb(var(--color-mossVelvet))]/15 bg-white/70">
+                <img
+                  src={profileImage}
+                  alt={`${profile.name} portfolio identity`}
+                  className="h-44 w-full object-cover"
+                />
               </div>
               <div className="grid gap-4 sm:grid-cols-3">
                 {stats.map((item) => (

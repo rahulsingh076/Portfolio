@@ -14,8 +14,8 @@ export const Hire = () => {
         <Reveal>
           <SectionHeading
             eyebrow="Hire Me"
-            title="Choose the kind of web upgrade you need."
-            description="From a focused one-page build to a complete portfolio refresh, each option keeps the same brand colors and typography while improving structure, motion, and responsiveness."
+            title="Frontend help for portfolios and responsive websites."
+            description="I focus on clean structure, reusable React sections, responsive styling, and clear content that helps visitors understand the page quickly."
             align="center"
           />
         </Reveal>
@@ -31,8 +31,8 @@ export const Hire = () => {
 
       <TimelineSection title="What happens after you reach out" />
       <CtaSection
-        title="Let us make the next version feel intentional."
-        description="A sharper portfolio can still feel like the same brand. It just needs better structure, better rhythm, and smarter interaction."
+        title="Let us build something clear and responsive."
+        description="Send the goal, the pages you need, and the technologies you prefer. I will shape the frontend around that."
       />
     </PageShell>
   );
