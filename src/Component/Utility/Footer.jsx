@@ -17,6 +17,10 @@ export const Footer = () => {
       <div className="mx-auto grid max-w-7xl gap-8 px-6 py-10 sm:px-8 md:grid-cols-[1.2fr_1fr_1fr] lg:px-12">
         <div>
           <img src={Logo} alt="Logo" className="h-auto w-32" />
+          <ul></ul>
+          <li>Mahato Nitesh</li>
+          <li>rahulrajsingh276@gmail.com</li>
+          <li>+821096703422</li>
           <p className="mt-4 max-w-sm text-sm leading-7 text-[rgb(var(--color-mossVelvet))]/70">
             Building digital products and portfolios that feel clean, useful,
             and ready for real visitors.
